@@ -1,8 +1,9 @@
 const router = require('express').Router();
 
-const { Thought, User } = require("../../models")
-console.log(Thought, User);
+const thoughtsRoute = require("./thoughts");
+const usersRoute = require("./users");
 
-router.get("/test", (req, res) => {res.send("test request recieved")});
+router.use("/thoughts", thoughtsRoute);
+router.use("/users", usersRoute);
 
 module.exports = router;

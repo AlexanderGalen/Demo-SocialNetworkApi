@@ -58,7 +58,7 @@ const thoughtSchema = new Schema(
 );
 
 // add virtual for "reactionCount" that gets the length of the reactions array field on query
-thoughtSchema.virtual("reactionCouunt")
+thoughtSchema.virtual("reactionCount")
     .get(function () {
         return this.reactions.length;
     });

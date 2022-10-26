@@ -32,7 +32,6 @@ router.post("/", async (req, res) => {
 
     // use id from result in users thoughts array
     let userResult = User.findOneAndUpdate({username: req.body.username}, {$push: {thoughts: result._id}} );
-    console.log(userResult);
     if(userResult) {
         res.status(200).json(result)
     }
@@ -42,7 +41,8 @@ router.post("/", async (req, res) => {
 });
 
 router.delete("/", async (req, res) => {
-    let deletedThought = await User.findByIdAndDelete(req.body.thoughtId);
+    let deletedThought = await Thought.findByIdAndDelete(req.body.thoughtId);
+    console.log(deletedThought);
     if(deletedThought) {
         res.status(200).json(deletedThought);
     }
